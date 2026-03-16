@@ -46,9 +46,9 @@ Requirements or preparatory tasks for each date are listed in brackets `[...]`.
 | **2026-02-23** | ❌ **Cancelled** | No meeting. Please refer to the email from Prof. Przemysław Biecek. Extra individual meeting time will be allocated later. |
 | **2026-03-02** | 🏫 **Onsite** | Introduction. Course outline, rules, and general research topics. First exercises in torch and running experiments. We'll go over the task of reproducing an experiment and verifying the results. |
 | **2026-03-09** | 🏫 **Onsite** | Research engines, paper structures, and effective "skimming" vs. deep reading. |
-| **2026-03-16** | 🏫 **Onsite** | Proposing research topics. What makes areas worth researching? Types of research articles, their framing and related topics. Framing hypotheses. `[Reproduce a single experiment from a research paper. Choosing a paper for 2-minute presentation]` *(Here I'll tell you in detail how the project part will go.)* |
-| **2026-03-23** | 🏫 **Onsite** | ⚗️ Experimentation I — How to conduct experiments, what to look for? How does that tie into answering research questions and publications? `[**2 Minute Papers** (refer to individual assignments section)]`|
-| **2026-03-30** | 🏫 **Onsite** | 📊 Presenting subgroup specific topics. Defining research goals. Peer review and feedback. `[A few slides on the research goals]` |
+| **2026-03-16** | 🏫 **Onsite** | Proposing research topics. What makes areas worth researching? Types of research articles, their framing and related topics. Framing hypotheses. *(Here I'll tell you in detail how the project part will go.)* |
+| **2026-03-23** | 🏫 **Onsite** | ⚗️ Experimentation I — How to conduct experiments, what to look for? How does that tie into answering research questions and publications? Project definitions. `[Choosing a paper for the 2-minute presentation]`|
+| **2026-03-30** | 🏫 **Onsite** | 📊 2-Minute Papers, group selections and first assignments `[Presentation for the 2-minute presentation. A single experiment reproduction from a research paper.]` |
 | **2026-04-13** | 🌐 **Onsite/Online** | ⚗️ Experimentation II |
 | **2026-04-20** | 🏫 **Onsite** | 🔍 1st Mid-project review and peer feedback. `[A few slides on the current results]` |
 | **2026-04-27** | 🌐 **Onsite/Online** | ⚗️ Experimentation III — *Here the lectures start.* |
