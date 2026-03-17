@@ -75,9 +75,11 @@ As mentioned in the **Contents** section, we'll start with a predefined general 
 
 We'll first go through some preparation before diving into specific topics for subgroups.
 
-- 🔁 **[Due 2026-03-16]** — You'll have to **reproduce a single experiment** from a list of papers prepared for you. This can be any experiment from a single research paper (reproduce a figure and compare). This will give you some idea of the skills required for the rest of the semester. You can message me with which table/figure you'd like to reproduce.
+- 👥 **[Due 2026-03-23]** — You'll need to **form teams of up to three** that will be your project teams for the rest of the semester. Alongside forming teams, you should also pick a topic for Part 2. The topics are detailed in the **Team Assignments** section below.
 
-- 🎙️ **[Due 2026-03-23]** — Like how it's done at some conferences, we'll have a **2 Minute Papers** competition! Everyone picks a single paper (and announces it in the Group chat under a thread I'll start after the previous meeting), then prepares a single slide — or, if they wish, uses the whiteboard.
+- 🔁 **[Due 2026-03-30]** — You'll have to **reproduce a single experiment** from a list of papers prepared for you. This can be any experiment from a single research paper (reproduce a figure and compare). This will give you some idea of the skills required for the rest of the semester. You can message me with which table/figure you'd like to reproduce.
+
+- 🎙️ **[Due 2026-03-30]** — Like how it's done at some conferences, we'll have a **2 Minute Papers** competition! Everyone picks a single paper (and announces it in the Group chat under a thread I'll start after the previous meeting), then prepares a single slide — or, if they wish, uses the whiteboard.
 
   I will assign points **[0–5]** based on the presentation. What will be valued:
   - Exactness w.r.t. the contents of the paper
@@ -86,7 +88,6 @@ We'll first go through some preparation before diving into specific topics for s
 
   **🏆 The first five people who pick the most interesting paper and present it in the clearest fashion will receive additional points:** 5 pts for 1st, 5 for 2nd, etc., down to 1 pt for 5th place.
 
-- 👥 **[Due 2026-03-16]** — You'll need to **form teams of up to three** that will be your project teams for the rest of the semester. Alongside forming teams, you should also pick a topic for Part 2. The topics are detailed in the **Team Assignments** section below.
 
 ---
 
