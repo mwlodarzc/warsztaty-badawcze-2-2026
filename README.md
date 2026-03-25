@@ -95,56 +95,65 @@ We'll first go through some preparation before diving into specific topics for s
 
 The general topic of the team projects is **Implicit Neural Cognitive Maps**.
 
-In many frontiers of science and engineering — from aerospace design to protein folding — we face a fundamental **measurement bottleneck**. Determining the ground truth performance of a candidate solution often requires high-fidelity simulations or physical assays that can take days or cost thousands of dollars. Traditional optimization methods fail here because they treat the world as a collection of disconnected data points, requiring massive datasets that are simply impossible to gather.
+In many frontiers of science and engineering, from aerospace design to protein folding, we face a fundamental **measurement bottleneck**. Determining the ground truth performance of a candidate solution often requires high-fidelity simulations or physical assays that can take days or cost thousands of dollars. Traditional optimization methods fail here because they treat the world as a collection of disconnected data points, requiring massive datasets that are simply impossible to gather.
 
-This workshop introduces **Implicit Neural Cognitive Maps**, a paradigm shift that models performance not as a table of numbers, but as a **continuous, differentiable neural landscape**. By leveraging Sinusoidal Activation Networks (SIRENs), we can parameterize the entire search space into a "mental map" where the system can calculate the exact slope of success — the gradient at any coordinate — even in regions where **no measurements have ever been taken**.
+This research workshop in the project part will deal with the idea of **Neural Mental Maps**, a paradigm shift that models performance not as a table of numbers, but as a **continuous, differentiable neural landscape**. By leveraging Implicit Neural Representations, we can parameterize the entire search space into a "mental map" where the system can calculate the exact slope of success, the gradient at any coordinate, even in regions where **no measurements have ever been taken**.
 
 Each team will be tasked with conducting experiments, evaluating the results, and presenting them in a **presentation** and a **short paper** (4 main + 1 appendix page, potentially more) on predefined topics.
-These topics have been chosen so that both people **advanced** and **inexperienced** in ML find something enjoyable.
+These topics have been chosen so that both people that are advanced and inexperienced in ML find something enjoyable.
 
+---
+### Neural Mental Maps: Active Coordinate Sampling for INR World Models
+
+An **Implicit Neural Representation (INR)** is a neural network `f_θ` that maps a continuous coordinate `x` to a signal value `y`. Rather than storing a signal on a fixed grid, the INR learns it as a continuous function, queryable at any coordinate, differentiable, and compact.
+
+The central question this project addresses: **given a limited budget of observations, which coordinates should be queried next to build the most accurate world model possible?**
+
+This is the active learning problem applied to INRs. Prior work on active learning has focused almost exclusively on Gaussian Processes as the surrogate model. GPs are powerful but scale cubically with data size and struggle beyond low dimensions. INRs scale better (hopefully) but they have no built-in uncertainty quantification, which is the foundation of every active sampling decision.
+
+This project builds a systematic framework for **active coordinate sampling with INR-based world models**, closing the full loop:
+
+```
+Initialize D₀ with k₀ random samples
+
+For t = 1 … T rounds:
+  1. Train INR f_θ on current dataset D_t
+  2. Estimate uncertainty σ(x) over all candidate coordinates   [UQ]
+  3. Score candidates using acquisition function α(x)            [Acquisition]
+  4. Select batch X_new = argmax A(S), |S| = k
+  5. Query oracle: observe y at X_new
+  6. Update D_{t+1} = D_t ∪ {(X_new, y_new)}
+  7. Evaluate reconstruction quality on held-out test set
+```
 ---
 
 ### 🧩 Team Assignments
 
-Individual topics for each group are listed below. Details will be available in the individual repositories.
+Individual topics for each group are listed below. Full details, experimental parameters, methods, datasets, and evaluation metrics are available in each team's dedicated file.
 
-#### 🎯 Team 1: Smart Sampling for Hidden Rewards
-You will address the measurement bottleneck where the ground truth performance of a system is prohibitively expensive to evaluate (e.g., high-fidelity CFD or crash tests).
-In this scenario, every data point is a significant investment, necessitating an **active learning strategy** that treats the environment like a hidden board.
+Each team has a **private** GitHub repository containing the same information as the subproject files here, along with the starter code and structure needed to begin working. All repositories are based on a shared [template](https://github.com/mwlodarzc/template). The repositories are private so that each team works independently and can experience the full cycle of a research project without spoilers from other groups' progress.
 
-- Your initial task is to reconstruct 2D "toy" landscapes using the **absolute minimum number of probes**. You will iterate between evaluating the simulation and updating a SIREN-based surrogate to maximize information gain per measurement.
-- You will compare your "optimizer-driven sampling" against standard systematic random sampling and passive learning baselines.
-<!-- - You will leverage Bayesian Optimization (BO) combined with SIREN-based surrogates, utilizing utility functions such as Expected Improvement (EI) or Maximum Variance to guide the next coordinate choice. -->
+#### Team 1: Uncertainty Quantification
+**Research question: Which UQ method best serves the active loop?**
 
-#### 🧭 Team 2: Steering with Neural Gradients
-This team develops the **navigation engine** based on the biological principle of Reward-Taxis — the mechanism by which organisms invigorate or slow movement based on the gradient of an attractant. Unlike traditional planners, this approach treats the performance map as a continuous, differentiable neural field.
+The [UncertaINR paper (Luo et al. 2023)](https://arxiv.org/abs/2202.10847) established that MC Dropout is best-calibrated for INRs in a *passive* setting. This team investigates whether that finding holds when the training distribution is no longer fixed — because the data being collected is itself shaped by the uncertainty estimates. The feedback loop between sampling and calibration may amplify small miscalibrations over rounds, making the passive ranking an unreliable guide for active deployment. The team will benchmark MC Dropout, Deep Ensembles, Evidential Deep Learning, Last-Layer Laplace, and Gaussian Processes across image reconstruction and analytical benchmark datasets, reporting calibration quality, drift, and compute-adjusted rankings.
 
-- You will implement a 2D particle that navigates a learned SIREN landscape by computing the analytical gradient $\nabla_{\mathbf{x}} \Phi(\mathbf{x})$ via automatic differentiation. You will test whether the agent can "feel" its way toward global peaks in a resolution-independent manner.
-- Evaluate your "taxis" mechanism against discrete path-planners like A* or population-based search methods such as Particle Swarm Optimization (PSO) and Genetic Algorithms.
-<!-- - Utilize SIRENs to provide the high-quality first-order derivatives ($\nabla \Phi$) and second-order Hessians necessary for smooth, gradient-based navigation. -->
+→ [Full project description](subprojects/team-1-uncertainty-quantification.md) · [🔒 Repository](https://github.com/mwlodarzc/nmm-uncertainty-quantification)
 
-#### 🌫️ Team 3: Detecting Uncertainty in Neural Maps
-Implicit Neural Representations (INRs) are prone to **"hallucinations"** — mispredictions of signals in regions where training data is sparse. This track focuses on **quantifying model doubt** (epistemic uncertainty) to ensure the agent only trusts valid peaks.
+#### 🧭 Team 2: Acquisition Functions
+**Research question: Which acquisition strategy is most sample-efficient?**
 
-- You will train multiple SIRENs on a sparse dataset and measure the variability across their predictions. You will create **blind spot maps** where the committee of models disagrees, using this signal to trigger more data gathering in high-uncertainty regions.
-- Compare the effectiveness of **Deep Ensembles** against single-model single-pass techniques such as Monte Carlo Dropout (MC-Dropout) and REV-INR.
-<!-- - Implement a Deep Ensemble architecture and use metrics like semantic entropy or per-pixel variance to differentiate between aleatoric (data noise) and epistemic (model lack of knowledge) uncertainty. -->
+MaxVar (sampling wherever the model is most uncertain) is already surprisingly competitive, but two orthogonal improvements are possible: *information-theoretic grounding* (FisherEIG, which asks which observations would most constrain model parameters) and *batch diversity* (BatchDPP, which avoids redundant queries in spatially clustered high-uncertainty regions). This team tests whether either improvement is empirically significant and whether they interact. Active strategies are evaluated against strong passive baselines (Sobol, Farthest Point Sampling) and a theoretical Oracle Error ceiling across analytical benchmark functions and physically motivated oracles.
 
-#### ⚡ Team 4: Navigating Implicit Fields with Physics Priors
-Optimization in real-world systems must satisfy safety constraints that are often non-convex and non-smooth. You will transform these constraints into **"repulsive force-fields"** so the system's steering gradient naturally avoids hazardous or invalid regions.
+→ [Full project description](subprojects/team-2-acquisition-functions.md) · [🔒 Repository](https://github.com/mwlodarzc/nmm-acquisition-functions)
 
-- Build a navigation task where an agent must reach a goal while traversing a landscape containing a Gaussian barrier obstacle. You will integrate specialized penalty terms into the SIREN training loss to ensure collision-free exploration.
-- Compare your physics-aware search against purely data-driven **Neural ODEs**, which often generalize poorly or lack stability under sparse data conditions.
-<!-- - Use Physics-Informed Neural Networks (PINNs) or Universal Differential Equations (UDEs) to embed governing laws, and explore the Shifted Boundary Method (SBM) to handle complex geometry without explicit meshing. -->
+#### 🌫️ Team 3: Exploration Strategies
+**Research question: Does active INR-based sampling survive embodied reachability constraints?**
 
-#### 🏅 Team 5: Decoding Progress from Win/Loss Outcomes
-In long-horizon tasks, the only feedback available is often a single **Success/Failure** signal at the end, leading to the **credit assignment problem**. You will back-calculate stepwise progress from these sparse outcome labels.
+Teams 1 and 2 assume the agent can observe any coordinate instantly. Physical agents cannot: they must navigate to observation locations within a movement budget, making the globally best query potentially inaccessible at any given round, and making purely greedy acquisition myopic in a way it is not in the unconstrained case. This team tests whether INR-based active strategies still outperform exploration methods built specifically for the embodied setting (Frontier Exploration, InfoGainRRT), and whether RL-trained policies (PPO, SAC) — which can learn long-horizon strategies to overcome myopia — outperform both. Evaluation covers reconstruction quality, path-planning success rate, and path cost ratio across maze, terrain, and safety-constrained environments.
 
-- You will test your framework on multi-turn reasoning environments (e.g., VisualSokoban or WebShop) where you must determine which intermediate decisions were responsible for task success.
-- Evaluate your dense progress signals against vanilla RL with sparse rewards or traditional Supervised Fine-Tuning (SFT) baselines.
-<!-- - Implement iStar (Implicit Step Rewards) to learn a process-based reward model via a multi-turn DPO objective, or PRIME to generate dense token-level signals that stabilize training in long trajectories. -->
+→ [Full project description](subprojects/team-3-exploration-strategies.md) · [🔒 Repository](https://github.com/mwlodarzc/nmm-exploration-strategies)
 
-> 📂 All teams will have a designated repository created on GitHub where all communication, experiments, and results will be gathered.
 > 📖 Essential literature has been provided in the [literature.md](./literature.md) file.
 
 ---
