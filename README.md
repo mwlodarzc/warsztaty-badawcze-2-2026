@@ -48,7 +48,7 @@ Requirements or preparatory tasks for each date are listed in brackets `[...]`.
 | **2026-03-09** | 🏫 **Onsite** | Research engines, paper structures, and effective "skimming" vs. deep reading. |
 | **2026-03-16** | 🏫 **Onsite** | Proposing research topics. What makes areas worth researching? Types of research articles, their framing and related topics. Framing hypotheses. *(Here I'll tell you in detail how the project part will go.)* |
 | **2026-03-23** | 🏫 **Onsite** | ⚗️ Experimentation I — How to conduct experiments, what to look for? How does that tie into answering research questions and publications? Project definitions. `[Choosing a paper for the 2-minute presentation]`|
-| **2026-03-30** | 🏫 **Onsite** | 📊 2-Minute Papers, group selections and first assignments `[Presentation for the 2-minute presentation. A single experiment reproduction from a research paper.]` |
+| **2026-03-30** | 🏫 **Onsite** | 📊 2-Minute Papers, group selections and first assignments `[Presentation for the 2-minute presentation.]` |
 | **2026-04-13** | 🌐 **Onsite/Online** | ⚗️ Experimentation II |
 | **2026-04-20** | 🏫 **Onsite** | 🔍 1st Mid-project review and peer feedback. `[A few slides on the current results]` |
 | **2026-04-27** | 🌐 **Onsite/Online** | ⚗️ Experimentation III — *Here the lectures start.* |
@@ -77,7 +77,7 @@ We'll first go through some preparation before diving into specific topics for s
 
 - 👥 **[Due 2026-03-23]** — You'll need to **form teams of up to three** that will be your project teams for the rest of the semester. Alongside forming teams, you should also pick a topic for Part 2. The topics are detailed in the **Team Assignments** section below.
 
-- 🔁 **[Due 2026-03-30]** — You'll have to **reproduce a single experiment** from a list of papers prepared for you. This can be any experiment from a single research paper (reproduce a figure and compare). This will give you some idea of the skills required for the rest of the semester. You can message me with which table/figure you'd like to reproduce.
+- 🔁 **[Due 2026-04-06, 23:59]** — You'll have to **reproduce a single experiment** from a list of papers prepared for you. This can be any experiment from a single research paper (reproduce a figure and compare). This will give you some idea of the skills required for the rest of the semester. You can message me with which table/figure you'd like to reproduce.
 
 - 🎙️ **[Due 2026-03-30]** — Like how it's done at some conferences, we'll have a **2 Minute Papers** competition! Everyone picks a single paper (and announces it in the Group chat under a thread I'll start after the previous meeting), then prepares a single slide — or, if they wish, uses the whiteboard.
 
