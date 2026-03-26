@@ -75,7 +75,7 @@ As mentioned in the **Contents** section, we'll start with a predefined general 
 
 We'll first go through some preparation before diving into specific topics for subgroups.
 
-- 👥 **[Due 2026-03-23]** — You'll need to **form teams of up to three** that will be your project teams for the rest of the semester. Alongside forming teams, you should also pick a topic for Part 2. The topics are detailed in the **Team Assignments** section below.
+- 👥 **[Due 2026-03-30]** — You'll need to **form teams of up to three** that will be your project teams for the rest of the semester. Alongside forming teams, you should also pick a topic for Part 2. The topics are detailed in the **Team Assignments** section below.
 
 - 🔁 **[Due 2026-04-06, 23:59]** — You'll have to **reproduce a single experiment** from a list of papers prepared for you. This can be any experiment from a single research paper (reproduce a figure and compare). This will give you some idea of the skills required for the rest of the semester. You can message me with which table/figure you'd like to reproduce.
 
